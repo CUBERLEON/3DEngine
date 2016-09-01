@@ -1,0 +1,19 @@
+#pragma once
+
+#include <glm/glm.hpp>
+#include <glm/gtx/quaternion.hpp>
+#include "core/Input.h"
+#include "core/ResourcesMgr.h"
+#include "core/Node.h"
+#include "core/Transform.h"
+#include "components/lights/DirectionalLight.h"
+#include "components/lights/PointLight.h"
+#include "components/lights/SpotLight.h"
+#include "components/cameras/PerspectiveCamera.h"
+#include "components/Entity.h"
+#include "rendering/Vertex.h"
+#include "rendering/Mesh.h"
+#include "rendering/Material.h"
+#include "rendering/Texture.h"
+#include "rendering/Window.h"
+#include "rendering/Skybox.h"

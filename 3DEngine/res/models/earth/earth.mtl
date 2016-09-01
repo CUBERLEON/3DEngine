@@ -1,0 +1,11 @@
+newmtl earth
+	Ns 4.0000
+	Ni 1.5000
+	Tr 0  illum 2
+	Ka 1 1 1
+	Kd 1 1 1
+	Ks 0.2 0.2 0.2
+	Ke 0 0 0
+	map_Kd earth_diff_med.png
+	map_Ks earth_spec_low.png
+	map_bump earth_norm_low.png
