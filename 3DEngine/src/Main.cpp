@@ -1,6 +1,3 @@
-// #pragma comment(linker, "/HEAP:500000000")
-// #pragma comment(linker, "/STACK:1000000000")
-
 #include "core/Core.h"
 #include "core/Debug.h"
 #include "TestScene.h"
@@ -14,7 +11,7 @@ int main()
 // 		engine->createWindow(1366, 768, "Test", true);
 // 		engine->createWindow(800, 600, "Test");
 // 		engine->createWindow(1920, 1080, "Test", true);
-		engine->createWindow(1280, 720, "Test");
+		engine->createWindow(800, 600, "Test");
 		engine->start();
 	}
 	catch (const std::exception& e)

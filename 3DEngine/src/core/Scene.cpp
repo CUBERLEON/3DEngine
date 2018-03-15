@@ -7,7 +7,7 @@
 #include "ResourcesMgr.h"
 #include "Debug.h"
 
-Scene::Scene() : m_root(ResourcesMgr::node("root"))
+Scene::Scene() : m_root(ResourcesMgr::node("root")), m_core(nullptr)
 {}
 
 Scene::~Scene()

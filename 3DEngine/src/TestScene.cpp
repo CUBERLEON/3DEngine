@@ -15,14 +15,13 @@ void TestScene::init()
 	//meshes
 // 	ResourcesMgr::node("sponza")->getTransform()->setScale(3, 3, 3);
 // 	ResourcesMgr::node("sponza")->getTransform()->setScale(0.3, 0.3, 0.3);
-// 	ResourcesMgr::node("sponza")->getTransform()->setScale(0.2, 0.2, 0.2);
-	ResourcesMgr::node("sponza")->getTransform()->setScale(0.03, 0.03, 0.03);
+//	ResourcesMgr::node("sponza")->getTransform()->setScale(0.2, 0.2, 0.2);
+ 	ResourcesMgr::node("sponza")->getTransform()->setScale(0.03, 0.03, 0.03);
 // 	ResourcesMgr::node("sponza")->getTransform()->setScale(0.003, 0.003, 0.003);
-	getRoot()->attach(ResourcesMgr::node("sponza")->addComponent(ResourcesMgr::createComponent<Entity>("sponza")->addMeshes(ResourcesMgr::meshArray("models/crytek/sponza.obj"))));
+ 	getRoot()->attach(ResourcesMgr::node("sponza")->addComponent(ResourcesMgr::createComponent<Entity>("sponza")->addMeshes(ResourcesMgr::meshArray("models/crytek/sponza.obj"))));
 // 	getRoot()->attach(ResourcesMgr::node("sponza")->addComponent(ResourcesMgr::createComponent<Entity>("sponza")->addMeshes(ResourcesMgr::meshArray("models/rungholt/house.obj"))));
-// 	getRoot()->attach(ResourcesMgr::node("sponza")->addComponent(ResourcesMgr::createComponent<Entity>("sponza")->addMeshes(ResourcesMgr::meshArray("models/rungholt/rungholt.obj"))));
+//	getRoot()->attach(ResourcesMgr::node("sponza")->addComponent(ResourcesMgr::createComponent<Entity>("sponza")->addMeshes(ResourcesMgr::meshArray("models/rungholt/rungholt.obj"))));
 // 	getRoot()->attach(ResourcesMgr::node("sponza")->addComponent(ResourcesMgr::createComponent<Entity>("sponza")->addMeshes(ResourcesMgr::meshArray("models/lost_empire/lost_empire.obj"))));
-// 	getRoot()->attach(ResourcesMgr::node("sponza")->addComponent(ResourcesMgr::createComponent<Entity>("sponza")->addMeshes(ResourcesMgr::meshArray("models/sanMiguel/sanMiguel.obj"))));
 // 	ResourcesMgr::material("models/crytek/sponza.obj>fabric_c")->setDiffuseTexture(ResourcesMgr::texture("models/crate.jpg"));
 
 	getRoot()->attach(ResourcesMgr::node("plane")->addComponent(ResourcesMgr::createComponent<Entity>("plane")->addMeshes(ResourcesMgr::meshArray("models/plane.obj"))));
@@ -64,7 +63,7 @@ void TestScene::init()
 	ResourcesMgr::node("camera2")->getTransform()->setPosition(glm::vec3(20, 10, 0))->setRotation(glm::quat(glm::vec3(0, glm::radians(90.), glm::radians(10.))));
 	getRoot()->attach(ResourcesMgr::node("camera2")->addComponent(ResourcesMgr::createComponent<PerspectiveCamera>("camera2", (float)glm::radians(60.), getWindow()->getAspectRatio(), 0.1f, 1000.0f)));
 // 	ResourcesMgr::node("camera2")->addComponent(ResourcesMgr::createComponent<SpotLight>("spot2", glm::vec3(1, 1, 1), 2.0f, Attenuation(0.5f, 0.15f, 0), cos(glm::radians(30.))));
-// 	ResourcesMgr::node("cube")->addComponent(ResourcesMgr::getComponent<PerspectiveCamera>("camera2"));
+	ResourcesMgr::node("cube")->addComponent(ResourcesMgr::getComponent<PerspectiveCamera>("camera2"));
 
 	ResourcesMgr::getComponent<PerspectiveCamera>("camera1")->activate();
 

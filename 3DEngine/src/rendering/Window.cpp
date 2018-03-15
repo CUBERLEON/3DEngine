@@ -19,7 +19,7 @@ Window::Window(int width, int height, const std::string& title, bool fullscreen,
 	if (!m_glfwWindow)
 	{
 		glfwTerminate();
-		Debug::fatalError("creation of Window failed");
+		Debug::fatalError("Creation of Window failed");
 	}
 
 	glfwMakeContextCurrent(m_glfwWindow);

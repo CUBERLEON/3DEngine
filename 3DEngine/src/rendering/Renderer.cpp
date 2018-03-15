@@ -33,7 +33,7 @@ Renderer::Renderer(Window* window)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	//shadows
-	m_shadowHeight = m_shadowWidth = 2048;
+	m_shadowHeight = m_shadowWidth = 1024;
 	m_shadowMap = new Texture(GL_TEXTURE_2D, GL_LINEAR, GL_LINEAR, GL_REPEAT);
 // 	glBindTexture(GL_TEXTURE_2D, m_shadowMap->getID());
 // 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);

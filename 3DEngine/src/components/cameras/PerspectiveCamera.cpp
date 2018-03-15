@@ -7,7 +7,8 @@
 #include "../../core/Transform.h"
 #include "../../rendering/Window.h"
 
-PerspectiveCamera::PerspectiveCamera(const std::string& name, float fov, float aspectRatio, float zNear, float zFar) : Camera(name)
+PerspectiveCamera::PerspectiveCamera(const std::string& name, float fov, float aspectRatio, float zNear, float zFar)
+: Camera(name), m_fov(fov), m_aspectRatio(aspectRatio), m_zNear(zNear), m_zFar(zFar)
 {
 	m_projectionTransform = glm::perspective(fov, aspectRatio, zNear, zFar);
 }
@@ -69,5 +70,9 @@ void PerspectiveCamera::updatePosition(float time)
 
 void PerspectiveCamera::setProjection(float fov, float aspectRatio, float zNear, float zFar)
 {
+	m_fov = fov;
+	m_aspectRatio = aspectRatio;
+	m_zNear = zNear;
+	m_zFar = zFar;
 	m_projectionTransform = glm::perspective(fov, aspectRatio, zNear, zFar);
 }
