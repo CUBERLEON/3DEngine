@@ -9,35 +9,35 @@ class Input;
 
 class Window
 {
-	friend class Input;
+    friend class Input;
 public:
-	Window(int width, int height, const std::string& title, bool fullscreen = false, bool vsync = false);
-	~Window();
+    Window(int width, int height, const std::string& title, bool fullscreen = false, bool vsync = false);
+    ~Window();
 
-	void refresh();
-	void resize(int width, int height);
+    void refresh();
+    void resize(int width, int height);
 
-	bool isCloseRequested();
-	bool isCreated();
-	bool isFocused();
+    bool isCloseRequested();
+    bool isCreated();
+    bool isFocused();
 
-	int getWidth();
-	int getHeight();
-	std::string getTitle();
+    int getWidth();
+    int getHeight();
+    std::string getTitle();
 
-	glm::vec2 getCenter();
-	float getAspectRatio();
+    glm::vec2 getCenter();
+    float getAspectRatio();
 
-	Input* getInput();
+    Input* getInput();
 
-	void moveToScreenCenter();
+    void moveToScreenCenter();
 protected:
 private:
-	GLFWwindow* m_glfwWindow;
-	Input* m_input;
+    GLFWwindow* m_glfwWindow;
+    Input* m_input;
 
-	std::string m_title;
+    std::string m_title;
 
-	GLFWwindow* getGLFWwindow();
+    GLFWwindow* getGLFWwindow();
 };
 

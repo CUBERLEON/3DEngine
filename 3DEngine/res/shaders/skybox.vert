@@ -9,6 +9,6 @@ uniform mat4 o_skyboxTransform;
 
 void main()
 {
-	gl_Position = (o_skyboxTransform * vec4(v_position, 1.0)).xyww;
-	f_skyboxCoord = v_position;
+    gl_Position = (o_skyboxTransform * vec4(v_position, 1.0)).xyww;
+    f_skyboxCoord = v_position;
 }

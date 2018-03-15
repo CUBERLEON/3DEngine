@@ -23,11 +23,11 @@ include "lighting.glsl"
 uniform SpotLight l_spot;
 
 void main() {
-	vec3 normal = texture2D(m_normalMap, f_textureCoord).xyz;
-	normal = (2.0 * normal - 1.0);
-	normal = normalize(f_TBN * normal);
-	
-	//OutColor = vec4(normal, 1);
+    vec3 normal = texture2D(m_normalMap, f_textureCoord).xyz;
+    normal = (2.0 * normal - 1.0);
+    normal = normalize(f_TBN * normal);
+    
+    //OutColor = vec4(normal, 1);
 
-	OutColor = texture(m_diffuseMap, f_textureCoord) * vec4(calcSpotLight(l_spot, normal, f_worldPosition), 1);
+    OutColor = texture(m_diffuseMap, f_textureCoord) * vec4(calcSpotLight(l_spot, normal, f_worldPosition), 1);
 }

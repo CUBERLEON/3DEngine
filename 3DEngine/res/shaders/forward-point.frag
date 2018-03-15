@@ -23,11 +23,11 @@ include "lighting.glsl"
 uniform PointLight l_point;
 
 void main() {
-	vec3 normal = texture2D(m_normalMap, f_textureCoord).xyz;
-	normal = (2.0 * normal - 1.0);
-	normal = normalize(f_TBN * normal);
+    vec3 normal = texture2D(m_normalMap, f_textureCoord).xyz;
+    normal = (2.0 * normal - 1.0);
+    normal = normalize(f_TBN * normal);
 
-	//OutColor = vec4(normal, 1);
+    //OutColor = vec4(normal, 1);
 
-	OutColor = texture2D(m_diffuseMap, f_textureCoord) * vec4(calcPointLight(l_point, normal, f_worldPosition), 1);
+    OutColor = texture2D(m_diffuseMap, f_textureCoord) * vec4(calcPointLight(l_point, normal, f_worldPosition), 1);
 }

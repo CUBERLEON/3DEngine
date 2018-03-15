@@ -5,12 +5,12 @@
 class NamedObject
 {
 public:
-	NamedObject(const std::string& name);
-	~NamedObject();
+    NamedObject(const std::string& name);
+    ~NamedObject();
 
-	inline const std::string& getName() const { return m_name; }
+    inline const std::string& getName() const { return m_name; }
 protected:
-	std::string m_name;
+    std::string m_name;
 private:
 };
 

@@ -6,13 +6,13 @@
 class DirectionalLight : public Light
 {
 public:
-	DirectionalLight(const std::string& name, const glm::vec3& color, float intensity);
-	~DirectionalLight();
+    DirectionalLight(const std::string& name, const glm::vec3& color, float intensity);
+    ~DirectionalLight();
 
-	glm::vec3 getDirection();
+    glm::vec3 getDirection();
 protected:
 private:
-	glm::mat4 getShadowTransform() override;
+    glm::mat4 getShadowTransform() override;
 };
 
 #endif // DIRECTIONAL_LIGHT_H

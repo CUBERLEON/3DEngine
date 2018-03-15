@@ -9,18 +9,18 @@
 class SpotLight : public PointLight
 {
 public:
-	SpotLight(const std::string& name, const glm::vec3& color, float intensity, const Attenuation& attenuation, float cutoff);
-	SpotLight(std::shared_ptr<PointLight>& pointLight, float cutoff);
-	~SpotLight();
+    SpotLight(const std::string& name, const glm::vec3& color, float intensity, const Attenuation& attenuation, float cutoff);
+    SpotLight(std::shared_ptr<PointLight>& pointLight, float cutoff);
+    ~SpotLight();
 
-	glm::vec3 getDirection();
+    glm::vec3 getDirection();
 
-	inline float getCutoff() const { return m_cutoff; }
-	inline void setCutoff(float cutoff) { m_cutoff = cutoff; }
+    inline float getCutoff() const { return m_cutoff; }
+    inline void setCutoff(float cutoff) { m_cutoff = cutoff; }
 protected:
-	float m_cutoff;
+    float m_cutoff;
 
-	SpotLight(const std::string& name, const glm::vec3& color, float intensity, const Attenuation& attenuation, float range, float cutoff);
+    SpotLight(const std::string& name, const glm::vec3& color, float intensity, const Attenuation& attenuation, float range, float cutoff);
 private:
 };
 

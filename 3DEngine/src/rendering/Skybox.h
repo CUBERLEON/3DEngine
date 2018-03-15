@@ -10,15 +10,15 @@ class Texture;
 class Skybox : public NamedObject
 {
 public:
-	Skybox(const std::string& name);
-	~Skybox();
+    Skybox(const std::string& name);
+    ~Skybox();
 
-	void render();
-	const std::shared_ptr<Texture>& getCubeMap() const;
+    void render();
+    const std::shared_ptr<Texture>& getCubeMap() const;
 protected:
 private:
-	std::shared_ptr<Texture> m_cubeMap;
+    std::shared_ptr<Texture> m_cubeMap;
 
-	GLuint m_vbo;
+    GLuint m_vbo;
 };
 

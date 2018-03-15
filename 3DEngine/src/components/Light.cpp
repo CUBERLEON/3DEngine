@@ -13,10 +13,10 @@ Light::~Light()
 
 void Light::addedToSceneEvent()
 {
-	getCore()->getRenderingEngine()->addLight(shared_from_this());
+    getCore()->getRenderingEngine()->addLight(shared_from_this());
 }
 
 void Light::removedFromSceneEvent()
 {
-	getCore()->getRenderingEngine()->removeLight(shared_from_this());
+    getCore()->getRenderingEngine()->removeLight(shared_from_this());
 }

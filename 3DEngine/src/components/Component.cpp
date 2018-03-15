@@ -12,13 +12,13 @@ Component::Component(const std::string& name) : NamedObject(name), m_core(nullpt
 
 Component::~Component()
 {
-	Debug::info("Released component '" + getName() + "'");
+    Debug::info("Released component '" + getName() + "'");
 }
 
 std::shared_ptr<Node> Component::getNode()
 {
-	auto ptr = m_node.lock();
-// 	if (ptr == nullptr)
-// 		Debug::warning("nullptr returned in Component.getNode(). Node wasn't assigned");
-	return ptr;
+    auto ptr = m_node.lock();
+//  if (ptr == nullptr)
+//      Debug::warning("nullptr returned in Component.getNode(). Node wasn't assigned");
+    return ptr;
 }

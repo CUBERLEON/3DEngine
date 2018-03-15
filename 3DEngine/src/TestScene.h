@@ -5,10 +5,10 @@
 class TestScene : public Scene
 {
 public:
-	TestScene();
-	~TestScene();
+    TestScene();
+    ~TestScene();
 
-	void init() override;
-	void update(float time) override;
+    void init() override;
+    void update(float time) override;
 };
 

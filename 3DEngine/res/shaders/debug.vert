@@ -12,10 +12,10 @@ layout (location = 3) in vec3 v_tangent;
 uniform mat4 t_mvpTransform;
 
 void main() {
-	float len = 0.5;
-	g_normal = v_normal * len;
-	g_tangent = v_tangent * len;
-	//g_bitangent = cross(v_normal, v_tangent) * len;
-	g_bitangent = cross(v_tangent, v_normal) * len;
-	gl_Position = vec4(v_position, 1.0);
+    float len = 0.5;
+    g_normal = v_normal * len;
+    g_tangent = v_tangent * len;
+    //g_bitangent = cross(v_normal, v_tangent) * len;
+    g_bitangent = cross(v_tangent, v_normal) * len;
+    gl_Position = vec4(v_position, 1.0);
 }

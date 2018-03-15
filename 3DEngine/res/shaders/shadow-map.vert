@@ -10,6 +10,6 @@ uniform mat4 t_mTransform;
 
 void main()
 {
-	f_textureCoord = v_textureCoord;
-	gl_Position = o_vpLightTransform * t_mTransform * vec4(v_position, 1.0);
+    f_textureCoord = v_textureCoord;
+    gl_Position = o_vpLightTransform * t_mTransform * vec4(v_position, 1.0);
 }

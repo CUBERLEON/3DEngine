@@ -7,7 +7,7 @@ Vertex::Vertex(const glm::vec3& position)
 {}
 
 Vertex::Vertex(const glm::vec3& position, const glm::vec2& texCoord)
-	: Vertex(position, texCoord, glm::vec3(0, 0, 0))
+    : Vertex(position, texCoord, glm::vec3(0, 0, 0))
 {}
 
 Vertex::Vertex(const glm::vec3& position, const glm::vec2& texCoord, const glm::vec3& normal)

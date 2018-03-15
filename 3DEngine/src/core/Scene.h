@@ -11,29 +11,29 @@ class Skybox;
 
 class Scene
 {
-	friend class Core;
+    friend class Core;
 public:
-	Scene();
-	~Scene();
+    Scene();
+    ~Scene();
 
-	std::shared_ptr<Node>& getRoot();
+    std::shared_ptr<Node>& getRoot();
 protected:
-	Window* getWindow();
-	const std::shared_ptr<Skybox>& getSkybox() const;
+    Window* getWindow();
+    const std::shared_ptr<Skybox>& getSkybox() const;
 
-	void setSkybox(const std::shared_ptr<Skybox>& skybox);
+    void setSkybox(const std::shared_ptr<Skybox>& skybox);
 private:
-	std::shared_ptr<Node> m_root;
+    std::shared_ptr<Node> m_root;
 
-	Core* m_core;
-	void setCore(Core* core);
+    Core* m_core;
+    void setCore(Core* core);
 
-	virtual void init() = 0;
-	virtual void update(float time) = 0;
-	
-	void initBase();
-	void updateBase(float time);
-	void render(Renderer& renderingEngine);
+    virtual void init() = 0;
+    virtual void update(float time) = 0;
+    
+    void initBase();
+    void updateBase(float time);
+    void render(Renderer& renderingEngine);
 };
 
 #endif // SCENE_H
