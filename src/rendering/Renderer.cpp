@@ -64,7 +64,7 @@ Renderer::Renderer(Window* window)
 Renderer::~Renderer()
 {}
 
-void Renderer::render(std::shared_ptr<Node>& root)
+void Renderer::render(const std::shared_ptr<Node>& root)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -108,7 +108,7 @@ void Renderer::render(std::shared_ptr<Node>& root)
     m_window->refresh();
 }
 
-void Renderer::renderAux(std::shared_ptr<Node>& root, std::shared_ptr<Shader>& shader)
+void Renderer::renderAux(const std::shared_ptr<Node>& root, const std::shared_ptr<Shader>& shader)
 {
     shader->bind();
     shader->updateCommon(*this);

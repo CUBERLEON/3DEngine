@@ -29,13 +29,13 @@ std::shared_ptr<Entity> Entity::addMeshes(const std::vector< std::shared_ptr<Mes
     return shared_from_this();
 }
 
-void Entity::render(std::shared_ptr<Shader>& shader, Renderer& renderingEngine)
+void Entity::render(const std::shared_ptr<Shader>& shader, Renderer& renderingEngine)
 {
     shader->updateTransform(*getNode()->getTransform(), renderingEngine);
 
     for (size_t i = 0; i < m_meshes.size(); ++i)
     {
-        if (shader->getName() == "shadow-map" || 
+        if (shader->getName() == "shadow-map" ||
             renderingEngine.getActiveCamera()->getFrustum()->isBoxInside(m_meshes[i]->getBounds()->getTransformed(getNode()->getTransform()->getRealModelTransform())))
         {
             m_meshes[i]->draw(shader);

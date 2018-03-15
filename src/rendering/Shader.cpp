@@ -49,7 +49,7 @@ Shader::~Shader()
 
 void Shader::updateCommon(Renderer& renderer)
 {
-    for (GLSLvariable& variable : m_uniforms) 
+    for (GLSLvariable& variable : m_uniforms)
     {
         switch (variable.name[0])
         {
@@ -67,7 +67,7 @@ void Shader::updateCommon(Renderer& renderer)
                 break;
             }
             //other uniforms
-            case 'o': 
+            case 'o':
             {
                 if (variable.name == "o_vpLightTransform")
                     setUniformM4F(variable.name, renderer.getActiveLight()->getShadowTransform());
@@ -203,13 +203,13 @@ void Shader::addAllUniforms(const std::string& text)
 
         bool used = false;
 
-        std::vector<GLSLvariable>& subUniforms = parseStruct(uniform.type, text);
-        if (subUniforms.size() == 0) 
+        std::vector<GLSLvariable> subUniforms = parseStruct(uniform.type, text);
+        if (subUniforms.size() == 0)
         {
             used |= addUniform(uniform);
 //          m_allUniforms.add(uniform);
         }
-        else for (GLSLvariable subUniform : subUniforms) 
+        else for (GLSLvariable subUniform : subUniforms)
         {
             used |= addUniform(GLSLvariable({ subUniform.type, uniform.name + "." + subUniform.name }));
 //          m_allUniforms.add(new GLSLvariable(subUniform.type, uniform.name + "." + subUniform.name));
@@ -229,11 +229,11 @@ std::vector<Shader::GLSLvariable> Shader::parseStruct(const std::string& structN
         return res;
     else {
         std::string structFields = m[1];
-        while (std::regex_search(structFields, m, std::regex("([^\\s]+)\\s+([^\\s]+)\\s*;"))) 
+        while (std::regex_search(structFields, m, std::regex("([^\\s]+)\\s+([^\\s]+)\\s*;")))
         {
             GLSLvariable variable({ m[1], m[2] });
 
-            std::vector<GLSLvariable> &subVariables = parseStruct(variable.type, text);
+            std::vector<GLSLvariable> subVariables = parseStruct(variable.type, text);
             if (subVariables.size() == 0)
                 res.push_back(variable);
             else
@@ -303,22 +303,22 @@ std::string Shader::loadShader(const std::string& name)
     {
         std::ifstream file(ResourcesMgr::PATH_PREFIX + "shaders/" + name);
         std::string line;
-        while (std::getline(file, line)) 
+        while (std::getline(file, line))
         {
-            if (line.size() > 7 && line.substr(0, 7) == "include") 
+            if (line.size() > 7 && line.substr(0, 7) == "include")
             {
                 std::smatch m;
                 if (std::regex_match(line, m, std::regex("\\s*include\\s+\"([^\"]+)\"\\s*")))
                     shaderSource += loadShader(m[1]);
             }
-            else 
+            else
             {
                 shaderSource += line;
             }
             shaderSource += "\n";
         }
     }
-    catch (...)//const std::exception& e) 
+    catch (...)//const std::exception& e)
     {
 //      Debug::fatalError("Failed to load shader file '" + name + "'. " + e.what());
         return "";

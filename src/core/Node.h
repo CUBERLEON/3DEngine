@@ -47,7 +47,7 @@ private:
     Transform* m_transform;
 
     void update(float time);
-    void render(std::shared_ptr<Shader>& shader, Renderer& renderingEngine);
+    void render(const std::shared_ptr<Shader>& shader, Renderer& renderingEngine);
 
     Core* m_core;
     inline void setCore(Core* core) { m_core = core; }

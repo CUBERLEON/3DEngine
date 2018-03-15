@@ -26,7 +26,7 @@ public:
     Renderer(Window* window);
     ~Renderer();
 
-    void render(std::shared_ptr<Node>& root);
+    void render(const std::shared_ptr<Node>& root);
 
     void setCamera(const std::shared_ptr<Camera>& mainCamera);
     void setSkybox(const std::shared_ptr<Skybox>& skybox);
@@ -61,6 +61,5 @@ private:
     std::shared_ptr<Shader> m_skyboxShader;
     std::shared_ptr<Skybox> m_skybox;
 
-    void renderAux(std::shared_ptr<Node>& root, std::shared_ptr<Shader>& shader);
+    void renderAux(const std::shared_ptr<Node>& root, const std::shared_ptr<Shader>& shader);
 };
-

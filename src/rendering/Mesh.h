@@ -17,7 +17,7 @@ class Mesh
 public:
     ~Mesh();
 
-    void draw(std::shared_ptr<Shader>& shader);
+    void draw(const std::shared_ptr<Shader>& shader);
 
     AABox* getBounds();
 protected:
@@ -42,4 +42,3 @@ private:
     void calcNormals(std::vector<Vertex> &vertices, std::vector< std::vector<int> >& indices);
     void calcTangents(std::vector<Vertex> &vertices, std::vector< std::vector<int> >& indices);
 };
-

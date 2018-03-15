@@ -21,6 +21,5 @@ protected:
 private:
     std::vector< std::shared_ptr<Mesh> > m_meshes;
 
-    void render(std::shared_ptr<Shader>& shader, Renderer& renderingEngine) override;
+    void render(const std::shared_ptr<Shader>& shader, Renderer& renderingEngine) override;
 };
-

@@ -42,11 +42,11 @@ Mesh::Mesh(std::vector<Vertex>& vertices, std::vector< std::vector<int> >& indic
 //  glEnableVertexAttribArray(0);
 //  glEnableVertexAttribArray(1);
 //  glEnableVertexAttribArray(2);
-// 
+//
 //  glVertexAttribPointer(0, 3, GL_FLOAT, false, 4 * 8, (void*)(0));
 //  glVertexAttribPointer(1, 2, GL_FLOAT, false, 4 * 8, (void*)(4 * 3));
 //  glVertexAttribPointer(2, 3, GL_FLOAT, false, 4 * 8, (void*)(4 * (3 + 2)));
-// 
+//
 //  glBindVertexArray(0);
 //  glDisableVertexAttribArray(0);
 //  glDisableVertexAttribArray(1);
@@ -65,7 +65,7 @@ Mesh::~Mesh()
     Debug::info("Released mesh (vertices_cnt=%d, indices_cnt=%d)", m_verticesCnt, m_totalIndicesCnt);
 }
 
-void Mesh::draw(std::shared_ptr<Shader>& shader)
+void Mesh::draw(const std::shared_ptr<Shader>& shader)
 {
     if (!m_ibos.size())
         return;

@@ -116,7 +116,7 @@ void Node::update(float time)
         child->update(time);
 }
 
-void Node::render(std::shared_ptr<Shader>& shader, Renderer& renderingEngine)
+void Node::render(const std::shared_ptr<Shader>& shader, Renderer& renderingEngine)
 {
     for (auto& component : m_components)
         component->render(shader, renderingEngine);

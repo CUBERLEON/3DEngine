@@ -32,7 +32,7 @@ private:
     void setNode(const std::shared_ptr<Node>& node) { m_node = node; }
 
     virtual void update(float time) {}
-    virtual void render(std::shared_ptr<Shader>& shader, Renderer& renderingEngine) {}
+    virtual void render(const std::shared_ptr<Shader>& shader, Renderer& renderingEngine) {}
 
     virtual void addedToSceneEvent() {}
     virtual void removedFromSceneEvent() {}
