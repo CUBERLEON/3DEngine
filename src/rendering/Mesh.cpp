@@ -27,37 +27,36 @@ Mesh::Mesh(std::vector<Vertex>& vertices, std::vector< std::vector<int> >& indic
     }
     m_bounds->setBounds(pmin, pmax);
 
-//  glGenVertexArrays(1, &m_vao);
+    glGenVertexArrays(1, &m_vao);
     glGenBuffers(1, &m_vbo);
 
-//  glBindVertexArray(m_vao);
+    glBindVertexArray(m_vao);
 
     glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
     if (vertices.size() > 0)
         glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertices[0]), &(vertices[0]), GL_STATIC_DRAW);
 
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
+    glEnableVertexAttribArray(3);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, false, 4 * Vertex::SIZE, (void*)(0));
+    glVertexAttribPointer(1, 2, GL_FLOAT, false, 4 * Vertex::SIZE, (void*)(4 * 3));
+    glVertexAttribPointer(2, 3, GL_FLOAT, false, 4 * Vertex::SIZE, (void*)(4 * (3 + 2)));
+    glVertexAttribPointer(3, 3, GL_FLOAT, false, 4 * Vertex::SIZE, (void*)(4 * (3 + 2 + 3)));
+
+    glBindVertexArray(0);
+
     for (size_t i = 0; i < indices.size(); ++i)
         add(indices[i], materials[i]);
-
-//  glEnableVertexAttribArray(0);
-//  glEnableVertexAttribArray(1);
-//  glEnableVertexAttribArray(2);
-//
-//  glVertexAttribPointer(0, 3, GL_FLOAT, false, 4 * 8, (void*)(0));
-//  glVertexAttribPointer(1, 2, GL_FLOAT, false, 4 * 8, (void*)(4 * 3));
-//  glVertexAttribPointer(2, 3, GL_FLOAT, false, 4 * 8, (void*)(4 * (3 + 2)));
-//
-//  glBindVertexArray(0);
-//  glDisableVertexAttribArray(0);
-//  glDisableVertexAttribArray(1);
-//  glDisableVertexAttribArray(2);
 }
 
 Mesh::~Mesh()
 {
     delete m_bounds;
 
-//  glDeleteVertexArrays(1, &m_vao);
+    glDeleteVertexArrays(1, &m_vao);
 
     glDeleteBuffers(1, &m_vbo);
     for (size_t i = 0; i < m_materials.size(); ++i)
@@ -70,18 +69,7 @@ void Mesh::draw(const std::shared_ptr<Shader>& shader)
     if (!m_ibos.size())
         return;
 
-    glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
-    glEnableVertexAttribArray(2);
-    glEnableVertexAttribArray(3);
-
-//  glBindVertexArray(m_vao);
-
-    glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-    glVertexAttribPointer(0, 3, GL_FLOAT, false, 4 * Vertex::SIZE, (void*)(0));
-    glVertexAttribPointer(1, 2, GL_FLOAT, false, 4 * Vertex::SIZE, (void*)(4 * 3));
-    glVertexAttribPointer(2, 3, GL_FLOAT, false, 4 * Vertex::SIZE, (void*)(4 * (3 + 2)));
-    glVertexAttribPointer(3, 3, GL_FLOAT, false, 4 * Vertex::SIZE, (void*)(4 * (3 + 2 + 3)));
+    glBindVertexArray(m_vao);
 
     for (size_t i = 0; i < m_ibos.size(); ++i)
     {
@@ -91,12 +79,7 @@ void Mesh::draw(const std::shared_ptr<Shader>& shader)
         glDrawElements(GL_TRIANGLES, m_iboSizes[i], GL_UNSIGNED_INT, 0);
     }
 
-//  glBindVertexArray(0);
-
-    glDisableVertexAttribArray(0);
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(2);
-    glDisableVertexAttribArray(3);
+    glBindVertexArray(0);
 }
 
 AABox* Mesh::getBounds()

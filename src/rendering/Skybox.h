@@ -20,5 +20,5 @@ private:
     std::shared_ptr<Texture> m_cubeMap;
 
     GLuint m_vbo;
+    GLuint m_vao;
 };
-

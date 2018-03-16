@@ -22,7 +22,7 @@ public:
     AABox* getBounds();
 protected:
 private:
-//  GLuint m_vao;
+  GLuint m_vao;
 
     GLuint m_vbo;
     size_t m_verticesCnt;

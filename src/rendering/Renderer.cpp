@@ -64,6 +64,33 @@ Renderer::Renderer(Window* window)
 Renderer::~Renderer()
 {}
 
+const char * GetGLErrorStr(GLenum err)
+{
+    switch (err)
+    {
+    case GL_NO_ERROR:          return "No error";
+    case GL_INVALID_ENUM:      return "Invalid enum";
+    case GL_INVALID_VALUE:     return "Invalid value";
+    case GL_INVALID_OPERATION: return "Invalid operation";
+    case GL_STACK_OVERFLOW:    return "Stack overflow";
+    case GL_STACK_UNDERFLOW:   return "Stack underflow";
+    case GL_OUT_OF_MEMORY:     return "Out of memory";
+    default:                   return "Unknown error";
+    }
+}
+
+void CheckGLErrors()
+{
+    while (true)
+    {
+        const GLenum err = glGetError();
+        if (GL_NO_ERROR == err)
+            break;
+
+        Debug::error("GL Error: %s", GetGLErrorStr(err));
+    }
+}
+
 void Renderer::render(const std::shared_ptr<Node>& root)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -106,6 +133,8 @@ void Renderer::render(const std::shared_ptr<Node>& root)
     }
 
     m_window->refresh();
+
+    CheckGLErrors();
 }
 
 void Renderer::renderAux(const std::shared_ptr<Node>& root, const std::shared_ptr<Shader>& shader)
