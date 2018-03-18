@@ -1,4 +1,5 @@
 # 3D Engine
+[![Build Status](https://travis-ci.org/CUBERLEON/3d-engine.svg?branch=master)](https://travis-ci.org/CUBERLEON/3d-engine)
 
 ## Features
 - Soft shadows
