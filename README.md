@@ -8,8 +8,15 @@
 - Resources management
 - Diffuse, alpha, normal, specular texture mapping
 - Directional, point, spot light sources
-- Objects loading
+- Support of .obj models
 - Scene graph
+
+## Dependencies
+- tinyobjloader (.obj models loading)
+- GLEW
+- GLFW
+- GLM
+- stb_image (images loading)
 
 ## Screenshots
 | ![](/screenshots/other1.png?raw=true) | ![](/screenshots/other4.png?raw=true) |
